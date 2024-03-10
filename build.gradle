@@ -8,5 +8,12 @@ ktor {
     docker {
         localImageName = "service-pet"
         imageTag = "1.0-SNAPSHOT"
+        externalRegistry.set(
+            io.ktor.plugin.features.DockerImageRegistry.dockerHub(
+                appName = provider { "service-pet" },
+                username = provider { "usr" },
+                password = provider { "qwerty" }
+            )
+        )
     }
 }
